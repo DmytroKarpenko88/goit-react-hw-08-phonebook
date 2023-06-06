@@ -39,9 +39,9 @@ const Filter = () =>
               type="text"
               name="filter"
               // value={value}
-              onChange={() => dispatch(findContact())}
+              onChange={handleInputChange}
             />
-            <Button type="button" onClick={handleInputChange}>
+            <Button type="button" onClick={toggleIsActive}>
               {isActive ? <FcLock /> : <FcUnlock />}
             </Button>
           </div>
