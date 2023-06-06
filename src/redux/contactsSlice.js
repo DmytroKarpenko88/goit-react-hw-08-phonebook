@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const contactsInitialState = {
   contacts: [
@@ -8,8 +8,8 @@ const contactsInitialState = {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   filter: '',
-  isActive: false,
 };
+// isActive: false,
 
 export const contactSlice = createSlice({
   name: 'contacts',
@@ -17,32 +17,50 @@ export const contactSlice = createSlice({
   reducers: {
     addContact: {
       reducer(state, action) {
-        state.push(action.payload);
-      },
-      prepare(name, number) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            number,
-          },
-        };
+        state.contacts.push(action.payload);
       },
     },
 
     deleteContact: {
       reducer(state, action) {
         const index = state.findIndex(contact => contact.id === action.payload);
-        state.splice(index, 1);
+        state.contacts.splice(index, 1);
+      },
+    },
+
+    findContact: {
+      reducer(state, action) {
+        state.filter = action.payload;
       },
     },
   },
 });
 
-export const { addContact, deleteContact } = contactSlice.actions;
+export const { addContact, deleteContact, findContact } = contactSlice.actions;
 
-export const filterSlice = createSlice({
-  name: 'filter',
-  initialState: '',
-  redusers: {},
+// export const filterSlice = createSlice({
+//   name: 'filter',
+//   initialState: '',
+//   redusers: {
+//     findContact: {
+//       reducer(state, action) {
+//         state = action.payload;
+//       },
+//     },
+//   },
+// });
+// export const { findContact } = filterSlice.actions;
+
+export const isActiveSlice = createSlice({
+  name: 'active',
+  initialState: true,
+  reducers: {
+    toggleIsActive: {
+      reducer(state) {
+        return (state = !state);
+      },
+    },
+  },
 });
+
+export const { toggleIsActive } = isActiveSlice.actions;

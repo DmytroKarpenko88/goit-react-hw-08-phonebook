@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactSlice } from './contactsSlice';
+import { contactSlice, isActiveSlice } from './contactsSlice';
 
 export const store = configureStore({
   reducer: {
-    contact: contactSlice.reducer,
+    contacts: contactSlice.reducer,
+    isActive: isActiveSlice.reducer,
   },
 });
