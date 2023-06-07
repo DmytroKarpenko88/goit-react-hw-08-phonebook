@@ -7,14 +7,13 @@ import { getActive, getContacts, getFilter } from 'redux/selectors';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-
+  const filterValue = useSelector(getFilter);
   const isActive = useSelector(getActive);
   const dispatch = useDispatch();
 
   const getVisibleItems = () => {
     return contacts.filter(el =>
-      el.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+      el.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase())
     );
   };
 

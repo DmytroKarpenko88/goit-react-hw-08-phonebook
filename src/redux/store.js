@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactSlice, isActiveSlice } from './contactsSlice';
+import { contactSlice } from './contactsSlice';
+import { isActiveSlice } from './isActiveSlice';
 import {
   persistStore,
   persistReducer,
@@ -15,6 +16,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['filter'],
 };
 
 const persistedReducer = persistReducer(persistConfig, contactSlice.reducer);
@@ -23,6 +25,7 @@ export const store = configureStore({
   reducer: {
     contacts: persistedReducer,
     isActive: isActiveSlice.reducer,
+    // filter: filterSlice.reducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({

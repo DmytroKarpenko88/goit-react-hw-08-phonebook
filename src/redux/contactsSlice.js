@@ -39,16 +39,16 @@ export const contactSlice = createSlice({
 
 export const { addContact, deleteContact, findContact } = contactSlice.actions;
 
-export const isActiveSlice = createSlice({
-  name: 'active',
-  initialState: true,
-  reducers: {
-    toggleIsActive: {
-      reducer(state) {
-        return (state = !state);
-      },
-    },
-  },
-});
+// export const filterSlice = createSlice({
+//   name: 'filter',
+//   initialState: '',
+//   reducers: {
+//     findContact: {
+//       reducer(state, action) {
+//         state = action.payload;
+//       },
+//     },
+//   },
+// });
 
-export const { toggleIsActive } = isActiveSlice.actions;
+// export const { findContact } = filterSlice.actions;
