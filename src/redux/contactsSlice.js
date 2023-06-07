@@ -37,18 +37,8 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { addContact, deleteContact } = contactSlice.actions;
-
-export const filterSlice = createSlice({
-  name: 'filter',
-  initialState: '',
-  reducers: {
-    findContact: {
-      reducer(state, action) {
-        state = action.payload;
-      },
-    },
-  },
-});
-
-export const { findContact } = filterSlice.actions;
+export const {
+  addContact,
+  deleteContact,
+  // findContact
+} = contactSlice.actions;

@@ -1,7 +1,7 @@
 import { Label, Input, Button } from './Filter.styled';
 import { FcSearch, FcLock, FcUnlock } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
-import { findContact } from 'redux/contactsSlice';
+import { findContact } from 'redux/filterSlice';
 
 import { toggleIsActive } from 'redux/isActiveSlice';
 
