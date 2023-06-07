@@ -1,54 +1,41 @@
-import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
+import { nanoid } from '@reduxjs/toolkit';
 import { Button, Form, Input, Label } from './ContactForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
 
   const nameInputId = nanoid(5);
   const numberInputId = nanoid(5);
 
-  const handleInputChange = e => {
-    const { name, value } = e.currentTarget;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'number':
-        setNumber(value);
-        break;
-
-      default:
-        break;
-    }
-  };
-
-  const resetForm = () => {
-    setName('');
-    setNumber('');
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
+    const form = e.target;
+    const formName = form.elements.name.value;
+    const formNumber = form.elements.number.value;
+
+    const existingName = contacts.find(({ name }) => name === formName);
+    const existingNumber = contacts.find(({ number }) => number === formNumber);
+
+    if (existingName) {
+      alert(`${formName} is already in contacts`);
+      return;
+    } else if (existingNumber) {
+      alert(`${formNumber} is already in contacts`);
+      return;
+    }
+
     const user = {
       id: nanoid(5),
-      name,
-      number,
+      name: formName,
+      number: formNumber,
     };
-    console.log(user);
 
-    // onSubmit(user);
     dispatch(addContact(user));
-
-    resetForm();
+    form.reset();
   };
 
   return (
@@ -64,8 +51,6 @@ const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           id={nameInputId}
-          value={name}
-          onChange={handleInputChange}
         />
       </Label>
       <Label htmlFor={numberInputId}>
@@ -78,8 +63,6 @@ const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           id={numberInputId}
-          value={number}
-          onChange={handleInputChange}
         />
       </Label>
       <Button type="submit">Add contact</Button>
@@ -87,7 +70,4 @@ const ContactForm = () => {
   );
 };
 
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
 export default ContactForm;

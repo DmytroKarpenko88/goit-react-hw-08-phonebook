@@ -1,1 +1,3 @@
-export const visibleList = state => state.contacts.contacts;
+export const getContacts = state => state.contacts.contacts;
+export const getFilter = state => state.contacts.filter;
+export const getActive = state => state.isActive;
