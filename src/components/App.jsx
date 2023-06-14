@@ -1,25 +1,25 @@
-import { Container } from './App.styled';
+import { Route, Routes } from 'react-router-dom';
+import AppBar from './AppBar/AppBar';
 
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
+import HomeView from 'views/HomeView';
+import RegisterView from 'views/RegisterView';
+import LoginView from 'views/LoginView';
+import Contacts from 'views/Contacts';
+import NotFound from 'views/NotFound';
+import { Container } from './App.styled';
 
 const App = () => {
   return (
-    <>
-      <Container>
-        <h2>Phonebook</h2>
-
-        <ContactForm />
-      </Container>
-
-      <Container>
-        <h2>Contacts</h2>
-
-        <Filter />
-        <ContactList />
-      </Container>
-    </>
+    <Container>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/register" element={<RegisterView />} />
+        <Route path="/login" element={<LoginView />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Container>
   );
 };
 
