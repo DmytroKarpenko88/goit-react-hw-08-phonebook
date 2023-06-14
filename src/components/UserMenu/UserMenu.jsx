@@ -5,7 +5,7 @@ export const UserMenu = () => {
   return (
     <Wrapper>
       <UserName>
-        Welcome,
+        Welcome, User
         {/* {user.name} */}
       </UserName>
       <button
