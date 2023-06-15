@@ -6,12 +6,10 @@ export const NotFoundImg = styled.img`
 `;
 
 export const Article = styled.p`
-  /* font-size: ${p => p.theme.space[5]}px; */
-  font-size: 20px;
+  font-size: ${p => p.theme.space[5]}px;
 `;
 
 export const LinkStyled = styled(Link)`
-  /* color: ${p => p.theme.colors.accentSecondary}; */
-  color: back;
+  color: ${p => p.theme.colors.accentSecondary};
   text-decoration: underline;
 `;
