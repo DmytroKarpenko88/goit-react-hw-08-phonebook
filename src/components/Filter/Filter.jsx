@@ -1,9 +1,9 @@
 import { Label, Input, Button } from './Filter.styled';
 import { FcSearch, FcLock, FcUnlock } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
-import { findContact } from 'redux/filterSlice';
+import { findContact } from 'redux/contacts/filterSlice';
 
-import { toggleIsActive } from 'redux/isActiveSlice';
+import { toggleIsActive } from 'redux/contacts/isActiveSlice';
 
 const Filter = () => {
   const isActive = useSelector(state => state.isActive);

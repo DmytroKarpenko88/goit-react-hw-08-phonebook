@@ -5,3 +5,5 @@ export * from 'components/Filter/Filter';
 export * from 'components/Navigation/Navigation';
 export * from 'components/AuthNav/AuthNav';
 export * from 'components/UserMenu/UserMenu';
+export * from 'components/RegisterForm/RegisterForm';
+export * from 'components/LoginForm/LoginForm';
