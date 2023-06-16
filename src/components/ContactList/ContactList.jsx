@@ -7,6 +7,7 @@ import { getActive, getContacts, getFilter } from 'redux/selectors';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
+  console.log('contacts:', contacts);
   const filterValue = useSelector(getFilter);
   const isActive = useSelector(getActive);
   const dispatch = useDispatch();

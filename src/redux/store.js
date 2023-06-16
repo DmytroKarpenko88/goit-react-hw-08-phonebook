@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactSlice } from './contacts/contactsSlice';
+// import { contactSlice } from './contacts/contactsSlice';
 import { isActiveSlice } from './contacts/isActiveSlice';
 import { filterSlice } from './contacts/filterSlice';
 import {
@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import { authReducer } from './auth/slice';
+import { contactsReducer } from './contacts/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -24,7 +25,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    contacts: contactSlice.reducer,
+    contacts: contactsReducer,
     isActive: isActiveSlice.reducer,
     filter: filterSlice.reducer,
   },
