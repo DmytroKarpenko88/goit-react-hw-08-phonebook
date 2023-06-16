@@ -37,8 +37,8 @@ export const contactSlice = createSlice({
   },
 });
 
-export const {
-  addContact,
-  deleteContact,
-  // findContact
-} = contactSlice.actions;
+// export const {
+//   addContact,
+//   deleteContact,
+//   // findContact
+// } = contactSlice.actions;

@@ -61,7 +61,7 @@ const contactSlice = createSlice({
       state.items.splice(index, 1, action.payload);
     },
     [logOut.fulfilled](state) {
-      state.items = [];
+      // state.items = [];
       state.error = null;
       state.isLoading = false;
     },

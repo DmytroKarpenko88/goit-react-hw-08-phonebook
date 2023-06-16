@@ -2,7 +2,8 @@ import { Button, List, ListItem, Text } from './ContactList.styled';
 
 import { TiUserDelete } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contacts/contactsSlice';
+import { deleteContact } from 'redux/contacts/operations';
+// import { deleteContact } from 'redux/contacts/contactsSlice';
 import { getActive, getContacts, getFilter } from 'redux/selectors';
 
 const ContactList = () => {
