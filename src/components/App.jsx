@@ -7,8 +7,13 @@ import LoginView from 'pages/LogIn/Login';
 import Contacts from 'pages/Contacts/Contacts';
 import NotFound from 'pages/NotFound/NotFound';
 import { Container } from './App.styled';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const App = () => {
+  const dispatch = useDispatch();
+  // useEffect;
+
   return (
     <Container>
       <AppBar />

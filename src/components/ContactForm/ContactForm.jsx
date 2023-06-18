@@ -2,18 +2,20 @@ import { nanoid } from '@reduxjs/toolkit';
 import { Button, Form, Input, Label } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from 'redux/contacts/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/contacts/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const nameInputId = nanoid(5);
   const numberInputId = nanoid(5);
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    console.log('Form Contacts', contacts);
     const form = e.target;
     const formName = form.elements.name.value;
     const formNumber = form.elements.number.value;
@@ -29,12 +31,12 @@ const ContactForm = () => {
       return;
     }
 
-    const user = {
+    const contact = {
       name: formName,
       number: formNumber,
     };
 
-    dispatch(addContact(user));
+    dispatch(addContact(contact));
     form.reset();
   };
 

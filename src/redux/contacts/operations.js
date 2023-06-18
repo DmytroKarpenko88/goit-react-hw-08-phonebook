@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 // GET @ /contacts
 export const fetchContacts = createAsyncThunk(
@@ -9,6 +10,7 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
+      Notify.failure('Ups, we have a problem!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

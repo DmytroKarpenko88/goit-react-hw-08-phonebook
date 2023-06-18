@@ -1,20 +1,31 @@
+import { useEffect } from 'react';
 import { Button, List, ListItem, Text } from './ContactList.styled';
 
 import { TiUserDelete } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contacts/operations';
-// import { deleteContact } from 'redux/contacts/contactsSlice';
-import { getActive, getContacts, getFilter } from 'redux/selectors';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
+import {
+  getActive,
+  selectContacts,
+  getFilter,
+  selectIsLoggedIn,
+} from 'redux/selectors';
 
 const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  console.log('contacts:', contacts);
+  const contacts = useSelector(selectContacts);
   const filterValue = useSelector(getFilter);
   const isActive = useSelector(getActive);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isLoggedIn]);
+
   const getVisibleItems = () => {
-    return contacts.filter(el =>
+    return contacts?.filter(el =>
       el.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase())
     );
   };
