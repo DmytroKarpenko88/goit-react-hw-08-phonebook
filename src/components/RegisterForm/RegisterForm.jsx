@@ -15,7 +15,6 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
-    console.log(form);
     form.reset();
   };
 

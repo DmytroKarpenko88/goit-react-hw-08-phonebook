@@ -10,6 +10,8 @@ import { Container } from './App.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { refreshUser } from 'redux/auth/operations';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const HomeView = lazy(() => import('pages/Home/Home'));
 const RegisterView = lazy(() => import('pages/Register/Register'));
@@ -29,9 +31,30 @@ const App = () => {
       <Suspense fallback={<div>Завантаження...</div>}>
         <Routes>
           <Route path="/" element={<HomeView />} />
-          <Route path="/register" element={<RegisterView />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
