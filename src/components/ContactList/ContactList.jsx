@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
-import { Button, List, ListItem, Text } from './ContactList.styled';
+import {
+  ButtonDelete,
+  ButtonEdit,
+  List,
+  ListItem,
+  Text,
+} from './ContactList.styled';
 
-import { TiUserDelete } from 'react-icons/ti';
+import { TiUserDelete, TiEdit } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import {
@@ -10,6 +16,7 @@ import {
   getFilter,
   selectIsLoggedIn,
 } from 'redux/selectors';
+import ModalUpdate from 'components/ModalUpdate/ModalUpdate';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -34,19 +41,28 @@ const ContactList = () => {
 
   return (
     <List>
+      <ModalUpdate />
       {visibleList?.map(({ id, name, number }) => {
         return (
           <ListItem key={id}>
             <div>
               <Text>{name}</Text> <Text>{number}</Text>
             </div>
-            <Button
+            <ModalUpdate />
+            <ButtonEdit
+              type="button"
+              disabled={isActive}
+              onClick={() => dispatch(deleteContact(id))}
+            >
+              <TiEdit />
+            </ButtonEdit>
+            <ButtonDelete
               type="button"
               disabled={isActive}
               onClick={() => dispatch(deleteContact(id))}
             >
               <TiUserDelete />
-            </Button>
+            </ButtonDelete>
           </ListItem>
         );
       })}
