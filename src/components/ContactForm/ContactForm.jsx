@@ -1,9 +1,17 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { Button, Form, Input, Label } from './ContactForm.styled';
+import {
+  //  Button,
+  Form,
+  Label,
+} from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addContact } from 'redux/contacts/contactsSlice';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/contacts/operations';
+
+import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+
+const ariaLabel = { 'aria-label': 'description' };
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +23,6 @@ const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log('Form Contacts', contacts);
     const form = e.target;
     const formName = form.elements.name.value;
     const formNumber = form.elements.number.value;
@@ -44,10 +51,10 @@ const ContactForm = () => {
     <Form onSubmit={handleSubmit}>
       <Label htmlFor={nameInputId}>
         <p>Name</p>
-
         <Input
           type="text"
           name="name"
+          inputProps={ariaLabel}
           placeholder="Rosie Simpson"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -55,6 +62,7 @@ const ContactForm = () => {
           id={nameInputId}
         />
       </Label>
+
       <Label htmlFor={numberInputId}>
         <p>Number</p>
         <Input
@@ -67,7 +75,10 @@ const ContactForm = () => {
           id={numberInputId}
         />
       </Label>
-      <Button type="submit">Add contact</Button>
+
+      <Button variant="contained" type="submit">
+        Add contact
+      </Button>
     </Form>
   );
 };

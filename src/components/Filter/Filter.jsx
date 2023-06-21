@@ -16,7 +16,7 @@ const Filter = () => {
   return (
     <>
       <Label>
-        <p>Find contac by name</p>
+        <p>Find contact by name</p>
         <div style={{ position: 'relative' }}>
           <FcSearch
             style={{

@@ -1,15 +1,18 @@
 import { nanoid } from '@reduxjs/toolkit';
 import {
-  Button,
+  // Button,
   ButtonContainer,
   Form,
-  Input,
+  // Input,
   Label,
 } from './UpdateForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { updateContact } from 'redux/contacts/operations';
 import { useState } from 'react';
+import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+import { Stack } from '@mui/material';
 
 const UpdateForm = ({ onClose, contactId }) => {
   const dispatch = useDispatch();
@@ -75,12 +78,22 @@ const UpdateForm = ({ onClose, contactId }) => {
           onChange={handleChangeNumber}
         />
       </Label>
-      <ButtonContainer>
-        <Button type="submit">Update contact</Button>
-        <Button type="button" onClick={handleClose}>
-          Cansel
+
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={5}
+      >
+        <Button variant="contained" type="submit">
+          Update contact
         </Button>
-      </ButtonContainer>
+        <Button variant="contained" type="button" onClick={handleClose}>
+          Cancel
+        </Button>
+      </Stack>
+
+      <ButtonContainer></ButtonContainer>
     </Form>
   );
 };

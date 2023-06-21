@@ -4,7 +4,7 @@ export const Form = styled.form`
   margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 35px;
 `;
 
 export const Label = styled.label`

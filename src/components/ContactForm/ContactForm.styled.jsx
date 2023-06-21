@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
+  min-width: 250px;
   margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 `;
 
 export const Label = styled.label`

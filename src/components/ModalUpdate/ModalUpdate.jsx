@@ -15,9 +15,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: '1px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: 5,
 };
 
 export default function ModalUpdate({ contactId }) {
@@ -27,12 +27,7 @@ export default function ModalUpdate({ contactId }) {
 
   return (
     <Container>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <ButtonEdit
-        type="button"
-        // disabled={isActive}
-        onClick={handleOpen}
-      >
+      <ButtonEdit type="button" onClick={handleOpen}>
         <TiEdit />
       </ButtonEdit>
       <Modal
@@ -42,13 +37,10 @@ export default function ModalUpdate({ contactId }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h4" component="h2">
             Update contact
           </Typography>
           <UpdateForm onClose={handleClose} contactId={contactId} />
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
         </Box>
       </Modal>
     </Container>

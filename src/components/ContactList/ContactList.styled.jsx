@@ -12,7 +12,15 @@ export const ListItem = styled.li`
   margin: 10px;
 `;
 
-export const Text = styled.span``;
+export const NameText = styled.span`
+  font-size: 20px;
+`;
+export const NumberText = styled.span`
+  display: block;
+  margin-left: auto;
+  text-align: end;
+  font-size: larger;
+`;
 
 export const ButtonDelete = styled.button`
   max-width: 100px;
@@ -50,4 +58,10 @@ export const ButtonEdit = styled.button`
     background-color: #007bff;
     color: white;
   }
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  width: 300px;
+  gap: 30px;
 `;

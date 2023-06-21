@@ -1,5 +1,12 @@
 import { useEffect } from 'react';
-import { ButtonDelete, List, ListItem, Text } from './ContactList.styled';
+import {
+  ButtonDelete,
+  List,
+  ListItem,
+  NameText,
+  NumberText,
+  TextContainer,
+} from './ContactList.styled';
 
 import { TiUserDelete } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,9 +45,10 @@ const ContactList = () => {
       {visibleList?.map(({ id, name, number }) => {
         return (
           <ListItem key={id}>
-            <div>
-              <Text>{name}</Text> <Text>{number}</Text>
-            </div>
+            <TextContainer>
+              <NameText>{name}</NameText>
+              <NumberText>{number}</NumberText>
+            </TextContainer>
             <ModalUpdate contactId={id} />
 
             <ButtonDelete

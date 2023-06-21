@@ -1,15 +1,20 @@
 import { RegisterForm } from 'components';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Img, RegisterBox } from './Register.styled';
+import RegImg from '../../images/registration.jpg';
 
 const RegisterView = () => {
   return (
-    <div>
+    <RegisterBox>
       <Helmet>
         <title>Register</title>
       </Helmet>
+
       <RegisterForm />
-    </div>
+
+      <Img src={RegImg} alt="registration" />
+    </RegisterBox>
   );
 };
 

@@ -10,11 +10,12 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 5px;
+  min-width: 310px;
   padding-left: 30px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
   font-size: 16px;
-  color: #555;
+  color: #0c0c0c;
   outline: none;
 
   &:focus-within {
