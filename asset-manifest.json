@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.7e762127.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.74a7a592.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.9b44fc98.js",
     "static/js/820.baf94ed9.chunk.js": "/goit-react-hw-08-phonebook/static/js/820.baf94ed9.chunk.js",
     "static/js/959.b8ea5ec8.chunk.js": "/goit-react-hw-08-phonebook/static/js/959.b8ea5ec8.chunk.js",
     "static/js/71.ffdc17f8.chunk.js": "/goit-react-hw-08-phonebook/static/js/71.ffdc17f8.chunk.js",
-    "static/js/445.c6601c6b.chunk.js": "/goit-react-hw-08-phonebook/static/js/445.c6601c6b.chunk.js",
+    "static/js/209.cad789b4.chunk.js": "/goit-react-hw-08-phonebook/static/js/209.cad789b4.chunk.js",
     "static/js/214.bf587fb4.chunk.js": "/goit-react-hw-08-phonebook/static/js/214.bf587fb4.chunk.js",
     "static/js/407.fe083336.chunk.js": "/goit-react-hw-08-phonebook/static/js/407.fe083336.chunk.js",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.7e762127.css.map": "/goit-react-hw-08-phonebook/static/css/main.7e762127.css.map",
-    "main.74a7a592.js.map": "/goit-react-hw-08-phonebook/static/js/main.74a7a592.js.map",
+    "main.9b44fc98.js.map": "/goit-react-hw-08-phonebook/static/js/main.9b44fc98.js.map",
     "820.baf94ed9.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/820.baf94ed9.chunk.js.map",
     "959.b8ea5ec8.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/959.b8ea5ec8.chunk.js.map",
     "71.ffdc17f8.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/71.ffdc17f8.chunk.js.map",
-    "445.c6601c6b.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/445.c6601c6b.chunk.js.map",
+    "209.cad789b4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/209.cad789b4.chunk.js.map",
     "214.bf587fb4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/214.bf587fb4.chunk.js.map",
     "407.fe083336.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/407.fe083336.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7e762127.css",
-    "static/js/main.74a7a592.js"
+    "static/js/main.9b44fc98.js"
   ]
 }
