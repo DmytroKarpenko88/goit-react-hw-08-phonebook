@@ -8,13 +8,13 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  gap: 5px;
   margin: 10px;
 `;
 
 export const Text = styled.span``;
 
 export const ButtonDelete = styled.button`
-  margin-left: auto;
   max-width: 100px;
   padding: 4px 12px;
   background-color: #ffffff;
@@ -34,7 +34,6 @@ export const ButtonDelete = styled.button`
 `;
 
 export const ButtonEdit = styled.button`
-  margin-left: auto;
   max-width: 100px;
   padding: 4px 12px;
   background-color: #ffffff;

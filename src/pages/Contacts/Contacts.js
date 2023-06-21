@@ -1,25 +1,28 @@
-import { Container } from 'components/App.styled';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import React from 'react';
-import { FlexContainer, Title } from './Contacts.styled';
+import {
+  AddContainer,
+  ContactsContainer,
+  FlexContainer,
+  Title,
+} from './Contacts.styled';
 
 const Contacts = () => {
   return (
     <FlexContainer>
-      <Container>
+      <AddContainer>
         <Title>Add contact</Title>
 
         <ContactForm />
-      </Container>
-
-      <Container>
+      </AddContainer>
+      <ContactsContainer>
         <h2>Contacts</h2>
 
         <Filter />
         <ContactList />
-      </Container>
+      </ContactsContainer>
     </FlexContainer>
   );
 };
