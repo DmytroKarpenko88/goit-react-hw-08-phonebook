@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { ButtonEdit } from 'components/ContactList/ContactList.styled';
+import { TiEdit } from 'react-icons/ti';
+import UpdateForm from 'components/UpdateForm/UpdateForm';
 
 const style = {
   position: 'absolute',
@@ -16,14 +19,21 @@ const style = {
   p: 4,
 };
 
-export default function ModalUpdate() {
+export default function ModalUpdate({ contactId }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
+      <ButtonEdit
+        type="button"
+        // disabled={isActive}
+        onClick={handleOpen}
+      >
+        <TiEdit />
+      </ButtonEdit>
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,11 +42,12 @@ export default function ModalUpdate() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Update contact
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <UpdateForm onClose={handleClose} contactId={contactId} />
+          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          </Typography> */}
         </Box>
       </Modal>
     </div>

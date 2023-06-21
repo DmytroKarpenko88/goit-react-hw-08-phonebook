@@ -1,13 +1,7 @@
 import { useEffect } from 'react';
-import {
-  ButtonDelete,
-  ButtonEdit,
-  List,
-  ListItem,
-  Text,
-} from './ContactList.styled';
+import { ButtonDelete, List, ListItem, Text } from './ContactList.styled';
 
-import { TiUserDelete, TiEdit } from 'react-icons/ti';
+import { TiUserDelete } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import {
@@ -41,21 +35,14 @@ const ContactList = () => {
 
   return (
     <List>
-      <ModalUpdate />
       {visibleList?.map(({ id, name, number }) => {
         return (
           <ListItem key={id}>
             <div>
               <Text>{name}</Text> <Text>{number}</Text>
             </div>
-            <ModalUpdate />
-            <ButtonEdit
-              type="button"
-              disabled={isActive}
-              onClick={() => dispatch(deleteContact(id))}
-            >
-              <TiEdit />
-            </ButtonEdit>
+            <ModalUpdate contactId={id} />
+
             <ButtonDelete
               type="button"
               disabled={isActive}

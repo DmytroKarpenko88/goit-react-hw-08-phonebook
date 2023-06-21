@@ -57,8 +57,12 @@ const contactSlice = createSlice({
     [updateContact.fulfilled](state, action) {
       state.isLoading = true;
       state.error = null;
+
       const index = state.items.findIndex(({ id }) => id === action.payload.id);
       state.items.splice(index, 1, action.payload);
+      // state.items = state.items.map(contact =>
+      //   contact.id === action.payload.id ? action.payload : contact
+      // );
     },
     [logOut.fulfilled](state) {
       state.items = [];
