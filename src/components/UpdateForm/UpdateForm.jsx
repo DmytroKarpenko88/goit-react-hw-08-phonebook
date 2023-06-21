@@ -1,5 +1,11 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { Button, Form, Input, Label } from './UpdateForm.styled';
+import {
+  Button,
+  ButtonContainer,
+  Form,
+  Input,
+  Label,
+} from './UpdateForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { updateContact } from 'redux/contacts/operations';
@@ -69,10 +75,12 @@ const UpdateForm = ({ onClose, contactId }) => {
           onChange={handleChangeNumber}
         />
       </Label>
-      <Button type="submit">Update contact</Button>
-      <Button type="button" onClick={handleClose}>
-        Cansel
-      </Button>
+      <ButtonContainer>
+        <Button type="submit">Update contact</Button>
+        <Button type="button" onClick={handleClose}>
+          Cansel
+        </Button>
+      </ButtonContainer>
     </Form>
   );
 };

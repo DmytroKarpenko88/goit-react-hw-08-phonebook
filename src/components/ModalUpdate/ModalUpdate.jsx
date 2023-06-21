@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import { ButtonEdit } from 'components/ContactList/ContactList.styled';
 import { TiEdit } from 'react-icons/ti';
 import UpdateForm from 'components/UpdateForm/UpdateForm';
+import { Container } from './ModalUpdate.styled';
 
 const style = {
   position: 'absolute',
@@ -25,7 +26,7 @@ export default function ModalUpdate({ contactId }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <Container>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <ButtonEdit
         type="button"
@@ -50,6 +51,6 @@ export default function ModalUpdate({ contactId }) {
           </Typography> */}
         </Box>
       </Modal>
-    </div>
+    </Container>
   );
 }

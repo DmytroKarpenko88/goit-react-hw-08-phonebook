@@ -3,12 +3,13 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import React from 'react';
+import { FlexContainer, Title } from './Contacts.styled';
 
 const Contacts = () => {
   return (
-    <div>
+    <FlexContainer>
       <Container>
-        <h2>Phonebook</h2>
+        <Title>Add contact</Title>
 
         <ContactForm />
       </Container>
@@ -19,7 +20,7 @@ const Contacts = () => {
         <Filter />
         <ContactList />
       </Container>
-    </div>
+    </FlexContainer>
   );
 };
 
